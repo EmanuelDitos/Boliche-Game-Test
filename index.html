@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jogo de boliche</title>
+</head>
+<body>
+    <h1>Boliche Teste</h1>
+    <button onclick="lançarBola()">Lançar Bola</button>
+    <p id="placar">Placar: 0</p>
+    
+    <Script>
+        var placar = 0;
+        var rodadaAtual =1;
+        var lançamentos = [];
+        var lançamentoAtual = 0;
+
+        function lançarBola (){
+            var pinosDerrubados = Math.floor(Math.random() * 11);
+            lançamentos[lançamentoAtual] = pinosDerrubados; 
+            
+            placar += pinosDerrubados;
+
+            if (lançamentoAtual  % 2 === 1 || pinosDerrubados  === 10) {
+                rodadaAtual++;
+            }
+            document.getElementById('placar').textContent = 'Placar: ' + placar; 
+            if (rodadaAtual > 10) {
+                alert('fim do jogo! Placar final:' + placar);
+            }
+            lançamentoAtual++;
+        }
+    </Script>
+</body>
+</html>
